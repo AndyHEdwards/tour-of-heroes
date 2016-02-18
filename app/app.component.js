@@ -53,6 +53,11 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                             path: '/heroes',
                             name: 'Heroes',
                             component: heroes_component_1.HeroesComponent
+                        },
+                        {
+                            path: '/detail/:id',
+                            name: 'HeroDetail',
+                            component: 'HeroDetailComponent'
                         }
                     ]), 
                     __metadata('design:paramtypes', [])
