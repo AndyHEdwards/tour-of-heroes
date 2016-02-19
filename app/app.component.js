@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './hero.service', './heroes.component', './dashboard.component'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './hero.service', './heroes.component', './dashboard.component', './hero-detail.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, hero_service_1, heroes_component_1, dashboard_component_1;
+    var core_1, router_1, hero_service_1, heroes_component_1, dashboard_component_1, hero_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -26,6 +26,9 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
             },
             function (dashboard_component_1_1) {
                 dashboard_component_1 = dashboard_component_1_1;
+            },
+            function (hero_detail_component_1_1) {
+                hero_detail_component_1 = hero_detail_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -36,6 +39,7 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        styleUrls: ['app/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
@@ -43,6 +47,11 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                         ]
                     }),
                     router_1.RouteConfig([
+                        {
+                            path: '/detail/:id',
+                            name: 'HeroDetail',
+                            component: hero_detail_component_1.HeroDetailComponent
+                        },
                         {
                             path: '/dashboard',
                             name: 'Dashboard',
@@ -53,11 +62,6 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './heroes
                             path: '/heroes',
                             name: 'Heroes',
                             component: heroes_component_1.HeroesComponent
-                        },
-                        {
-                            path: '/detail/:id',
-                            name: 'HeroDetail',
-                            component: 'HeroDetailComponent'
                         }
                     ]), 
                     __metadata('design:paramtypes', [])
